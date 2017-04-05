@@ -1,3 +1,6 @@
+import julia.JuliaFractalCreator;
+import number.Complex;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -8,7 +11,9 @@ public class Main {
     public static void main(String[] args) {
         int size=1000;
         File file=new File("test.jpg");
-        BufferedImage bufferedImage = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
+        Complex c=new Complex( -0.390541,- 0.586788);
+        JuliaFractalCreator gen=new JuliaFractalCreator(500,1000);
+        BufferedImage bufferedImage = gen.generateFractal(c);
         try {
             ImageIO.write(bufferedImage, "jpg", file);
         }catch (IOException e){
