@@ -17,7 +17,7 @@ public class JuliaFractalCreator {
     private int width;
     private static final int MAX_VALUE=120;
 
-    public JuliaFractalCreator(int height, int width) {
+    public JuliaFractalCreator(int width,int height) {
         this.height = height;
         this.width = width;
         converter=new ConverterHSVtoRGB();

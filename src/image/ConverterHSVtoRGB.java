@@ -66,9 +66,13 @@ public class ConverterHSVtoRGB {
              default:
                  break;
         }
-        int nR=(int)(255*r);
+        //prefer blue color
+//        int nR=(int)(255*r);
+//        int nG=(int)(255*g);
+//        int nB=(int)(255*b);
+        int nR=(int)(255*b);
         int nG=(int)(255*g);
-        int nB=(int)(255*b);
+        int nB=(int)(255*r);
         return new RGB(nR,nG,nB);
     }
 
