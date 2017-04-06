@@ -12,7 +12,7 @@ public class Main {
         int size=1000;
         File file=new File("img//test.jpg");
         Complex c=new Complex(  -0.123, 0.745);
-       JuliaFractalCreator gen=new JuliaFractalCreator(200,200);
+       JuliaFractalCreator gen=new JuliaFractalCreator(1000,1000);
         BufferedImage bufferedImage = gen.generateFractal(c);
         try {
             ImageIO.write(bufferedImage, "jpg", file);
