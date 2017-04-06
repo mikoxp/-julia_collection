@@ -1,1 +1,2 @@
-# -julia_collection
+# Fractal Juli
+## Generate with blue color
