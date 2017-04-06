@@ -1,5 +1,6 @@
 package julia;
 
+import image.RGB;
 import number.Complex;
 
 import java.awt.image.BufferedImage;
@@ -23,23 +24,37 @@ public class JuliaFractalCreator {
         int value=-1;
         Complex z=new Complex(p);
         do{
-            value++;
-            z.powSquare();
-            z.sumAdd(c);
+        value++;
+        z.powSquare();
+        z.sumAdd(c);
         }while(conditionalExpression(z,value));
         return value;
     }
     private boolean conditionalExpression(Complex c,int valueInt){
         boolean value;
-        if((c.getReal()*c.getReal()+c.getImaginary()*c.getImaginary()<4)&&valueInt<MAX_VALUE){
+        double i=c.getReal()*c.getReal()+c.getImaginary()*c.getImaginary();
+        if((i<4)&&valueInt<MAX_VALUE){
             return true;
         }
             return false;
     }
     public BufferedImage generateFractal(Complex c){
-        BufferedImage bufferedImage = new BufferedImage(width,height, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bufferedImage = new BufferedImage(width,height, BufferedImage.TYPE_INT_RGB);
         p=new Complex(-1.5,-1.25);
-
+        double pom=p.getImaginary();
+        int colorValue;
+        RGB rgb;
+        Complex r=new Complex(3.0/width,2.5/height);
+        for(int i=0;i<width;i++){
+            for(int j=0;j<height;j++){
+                colorValue=calculateValue(c,p);
+                rgb=new RGB(colorValue,colorValue,colorValue);
+                bufferedImage.setRGB(i,j,rgb.getColor().getRGB());
+                p.setImaginary(p.getImaginary()+r.getImaginary());
+            }
+            p.setReal(p.getReal()+r.getReal());
+            p.setImaginary(pom);
+        }
         return bufferedImage;
     }
 }

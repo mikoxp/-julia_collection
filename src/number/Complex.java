@@ -45,4 +45,12 @@ public class Complex {
     public void setImaginary(double imaginary) {
         this.imaginary = imaginary;
     }
+
+    @Override
+    public String toString() {
+        return "Complex{" +
+                "real=" + real +
+                ", imaginary=" + imaginary +
+                '}';
+    }
 }

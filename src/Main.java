@@ -10,14 +10,16 @@ public class Main {
 
     public static void main(String[] args) {
         int size=1000;
-        File file=new File("test.jpg");
-        Complex c=new Complex( -0.390541,- 0.586788);
-        JuliaFractalCreator gen=new JuliaFractalCreator(500,1000);
+        File file=new File("img//test.jpg");
+        Complex c=new Complex(  -0.123, 0.745);
+       JuliaFractalCreator gen=new JuliaFractalCreator(200,200);
         BufferedImage bufferedImage = gen.generateFractal(c);
         try {
             ImageIO.write(bufferedImage, "jpg", file);
         }catch (IOException e){
             System.err.println(e);
         }
+
+
     }
 }
